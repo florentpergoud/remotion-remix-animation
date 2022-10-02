@@ -1,3 +1,4 @@
+import {AbsoluteFill} from 'remotion';
 import {E} from './remotion-logo/e';
 import {FirstO} from './remotion-logo/first-o';
 import {I} from './remotion-logo/i';
@@ -7,17 +8,19 @@ import {R} from './remotion-logo/r';
 import {SecondO} from './remotion-logo/second-o';
 import {T} from './remotion-logo/t';
 
-export const RemotionLogo = () => {
+interface Props {
+	horizontalOffset?: number;
+}
+
+export const RemotionNotAnimated = ({horizontalOffset = 0}: Props) => {
 	return (
-		<svg
-			width="2100"
-			height="800"
+		<AbsoluteFill
 			style={{
-				width: '100%',
+				display: 'flex',
+				left: `calc(16% + ${horizontalOffset}px)`,
+				top: '7%',
+				transform: 'scale(0.45)',
 			}}
-			viewBox="0 0 2100 800"
-			fill="none"
-			xmlns="http://www.w3.org/2000/svg"
 		>
 			<R />
 			<E />
@@ -27,6 +30,6 @@ export const RemotionLogo = () => {
 			<I />
 			<SecondO />
 			<N />
-		</svg>
+		</AbsoluteFill>
 	);
 };

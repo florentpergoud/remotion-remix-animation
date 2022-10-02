@@ -1,9 +1,32 @@
 import React from 'react';
+import {AbsoluteFill} from 'remotion';
 
-export const SecondO: React.FC = () => {
+interface Props {
+	marginLeft?: number;
+	marginTop?: number;
+	rotation?: number;
+	scale?: number;
+}
+
+export const SecondO: React.FC = ({
+	marginLeft = 0,
+	marginTop = 0,
+	rotation = 0,
+	scale = 1,
+}: Props) => {
 	return (
-		<>
-			<g>
+		<AbsoluteFill
+			style={{
+				marginLeft,
+				marginTop,
+				transform: `rotate(${rotation}deg) scale(${scale})`,
+			}}
+		>
+			<svg
+				viewBox="0 0 2100 800"
+				fill="none"
+				xmlns="http://www.w3.org/2000/svg"
+			>
 				<rect
 					x={1642.5 - 126 / 2}
 					y={421.5 - 126 / 2}
@@ -13,7 +36,7 @@ export const SecondO: React.FC = () => {
 					strokeWidth={46}
 					rx={63}
 				/>
-			</g>
-		</>
+			</svg>
+		</AbsoluteFill>
 	);
 };

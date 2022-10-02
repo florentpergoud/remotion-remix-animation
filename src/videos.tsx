@@ -1,13 +1,13 @@
 import {Composition} from 'remotion';
 import './load-fonts';
-import {LogoEntrance} from './logo-entrance';
+import {LogoAnimation} from './logo-animation';
 
 export const RemotionVideo: React.FC = () => {
 	return (
 		<>
 			<Composition
-				id="LogoEntrance"
-				component={LogoEntrance}
+				id="LogoAnimation"
+				component={LogoAnimation}
 				durationInFrames={150}
 				fps={30}
 				width={1920}
