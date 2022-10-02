@@ -10,7 +10,7 @@ interface Props {
 	scale?: number;
 }
 
-export const I: React.FC = ({
+export const I = ({
 	marginLeft = 0,
 	marginTop = 0,
 	rotation = 0,

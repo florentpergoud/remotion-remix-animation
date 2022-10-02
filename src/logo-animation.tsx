@@ -1,7 +1,6 @@
 import {interpolate, useVideoConfig} from 'remotion';
 import {spring, useCurrentFrame} from 'remotion';
 import {Sequence} from 'remotion';
-import {AbsoluteFill} from 'remotion';
 import {PlusSymbol} from './components/plus-symbol';
 import {RemixNotAnimated} from './components/remix-not-animated';
 import {RemotionAnimated} from './components/remotion-animated';

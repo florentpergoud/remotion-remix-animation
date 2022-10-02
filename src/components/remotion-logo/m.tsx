@@ -11,7 +11,7 @@ interface Props {
 	scale?: number;
 }
 
-export const M: React.FC = ({
+export const M = ({
 	marginLeft = 0,
 	marginTop = 0,
 	rotation = 0,

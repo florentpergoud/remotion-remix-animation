@@ -2,7 +2,7 @@ import {Composition} from 'remotion';
 import './load-fonts';
 import {LogoAnimation} from './logo-animation';
 
-export const RemotionVideo: React.FC = () => {
+export const RemotionVideo = () => {
 	return (
 		<>
 			<Composition

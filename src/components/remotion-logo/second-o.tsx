@@ -8,7 +8,7 @@ interface Props {
 	scale?: number;
 }
 
-export const SecondO: React.FC = ({
+export const SecondO = ({
 	marginLeft = 0,
 	marginTop = 0,
 	rotation = 0,
