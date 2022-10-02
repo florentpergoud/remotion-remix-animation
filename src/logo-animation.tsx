@@ -2,6 +2,7 @@ import {interpolate, useVideoConfig} from 'remotion';
 import {spring, useCurrentFrame} from 'remotion';
 import {Sequence} from 'remotion';
 import {PlusSymbol} from './components/plus-symbol';
+import {RemixAnimated} from './components/remix-animated';
 import {RemixNotAnimated} from './components/remix-not-animated';
 import {RemotionAnimated} from './components/remotion-animated';
 import {RemotionNotAnimated} from './components/remotion-not-animated';
@@ -20,7 +21,7 @@ export const LogoAnimation = () => {
 		},
 	});
 
-	const remixXOffset = interpolate(progress, [0, 1], [900, 0]);
+	const remixXOffset = interpolate(progress, [0, 1], [-900, 180]);
 	const remotionXOffset = interpolate(progress, [0, 1], [900, 0]);
 	const plusYOffset = interpolate(progress, [0, 1], [900, 0]);
 
@@ -44,7 +45,7 @@ export const LogoAnimation = () => {
 					backgroundColor: 'white',
 				}}
 			>
-				<RemixNotAnimated horizontalOffset={remixXOffset} />
+				<RemixAnimated horizontalOffset={remixXOffset} />
 				<RemotionAnimated horizontalOffset={remotionXOffset} />
 				<PlusSymbol />
 			</Sequence>
