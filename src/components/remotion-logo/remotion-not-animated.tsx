@@ -1,12 +1,12 @@
 import {AbsoluteFill} from 'remotion';
-import {E} from './remotion-logo/e';
-import {FirstO} from './remotion-logo/first-o';
-import {I} from './remotion-logo/i';
-import {M} from './remotion-logo/m';
-import {N} from './remotion-logo/n';
-import {R} from './remotion-logo/r';
-import {SecondO} from './remotion-logo/second-o';
-import {T} from './remotion-logo/t';
+import {E} from './e';
+import {FirstO} from './first-o';
+import {I} from './i';
+import {M} from './m';
+import {N} from './n';
+import {R} from './r';
+import {SecondO} from './second-o';
+import {T} from './t';
 
 interface Props {
 	horizontalOffset?: number;

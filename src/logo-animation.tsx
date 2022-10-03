@@ -2,10 +2,12 @@ import {interpolate, useVideoConfig} from 'remotion';
 import {spring, useCurrentFrame} from 'remotion';
 import {Sequence} from 'remotion';
 import {PlusSymbol} from './components/plus-symbol';
-import {RemixAnimated} from './components/remix-animated';
-import {RemixNotAnimated} from './components/remix-not-animated';
-import {RemotionAnimated} from './components/remotion-animated';
-import {RemotionNotAnimated} from './components/remotion-not-animated';
+import {RemixLineToPerson} from './components/remix-logo/remix-line-to-person';
+import {RemixNotAnimated} from './components/remix-logo/remix-not-animated';
+import {RemixPersonToFusion} from './components/remix-logo/remix-person-to-fusion';
+import {RemotionLineToPerson} from './components/remotion-logo/remotion-line-to-person';
+import {RemotionNotAnimated} from './components/remotion-logo/remotion-not-animated';
+import {RemotionPersonToFusion} from './components/remotion-logo/remotion-person-to-fusion';
 
 export const LogoAnimation = () => {
 	const {fps} = useVideoConfig();
@@ -40,13 +42,24 @@ export const LogoAnimation = () => {
 			</Sequence>
 			<Sequence
 				from={fps}
-				durationInFrames={fps * 3}
+				durationInFrames={fps}
 				style={{
 					backgroundColor: 'white',
 				}}
 			>
-				<RemixAnimated horizontalOffset={remixXOffset} />
-				<RemotionAnimated horizontalOffset={remotionXOffset} />
+				<RemixLineToPerson horizontalOffset={remixXOffset} />
+				<RemotionLineToPerson horizontalOffset={remotionXOffset} />
+				<PlusSymbol />
+			</Sequence>
+			<Sequence
+				from={fps * 2}
+				durationInFrames={fps}
+				style={{
+					backgroundColor: 'white',
+				}}
+			>
+				<RemixPersonToFusion horizontalOffset={remixXOffset} />
+				<RemotionPersonToFusion horizontalOffset={remotionXOffset} />
 				<PlusSymbol />
 			</Sequence>
 		</>

@@ -1,24 +1,26 @@
-import {AbsoluteFill} from 'remotion';
-
 interface Props {
+	letterValue: string;
 	marginLeft?: number;
 	marginTop?: number;
 	rotation?: number;
 	scale?: number;
 }
 
-export const X = ({
+export const RemixLetter = ({
+	letterValue,
 	marginLeft = 0,
 	marginTop = 0,
 	rotation = 0,
 	scale = 1,
 }: Props) => {
 	return (
-		<AbsoluteFill
+		<div
 			style={{
-				marginLeft,
-				marginTop,
+				position: 'absolute',
+				left: marginLeft,
+				top: marginTop,
 				transform: `rotate(${rotation}deg) scale(${scale})`,
+				transformOrigin: 'center',
 			}}
 		>
 			<span
@@ -29,8 +31,8 @@ export const X = ({
 					fontWeight: 700,
 				}}
 			>
-				x
+				{letterValue}
 			</span>
-		</AbsoluteFill>
+		</div>
 	);
 };

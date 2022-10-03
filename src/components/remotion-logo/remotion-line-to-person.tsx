@@ -5,20 +5,20 @@ import {
 	useCurrentFrame,
 	useVideoConfig,
 } from 'remotion';
-import {E} from './remotion-logo/e';
-import {FirstO} from './remotion-logo/first-o';
-import {I} from './remotion-logo/i';
-import {M} from './remotion-logo/m';
-import {N} from './remotion-logo/n';
-import {R} from './remotion-logo/r';
-import {SecondO} from './remotion-logo/second-o';
-import {T} from './remotion-logo/t';
+import {E} from './e';
+import {FirstO} from './first-o';
+import {I} from './i';
+import {M} from './m';
+import {N} from './n';
+import {R} from './r';
+import {SecondO} from './second-o';
+import {T} from './t';
 
 interface Props {
 	horizontalOffset?: number;
 }
 
-export const RemotionAnimated = ({horizontalOffset = 0}: Props) => {
+export const RemotionLineToPerson = ({horizontalOffset = 0}: Props) => {
 	const {fps} = useVideoConfig();
 	const frame = useCurrentFrame();
 
@@ -50,7 +50,7 @@ export const RemotionAnimated = ({horizontalOffset = 0}: Props) => {
 	const eVerticalPosition = interpolate(progress, [0, 1], [0, -107]);
 
 	const mHorizontalPosition = interpolate(progress, [0, 1], [0, -140]);
-	const mVerticalPosition = interpolate(progress, [0, 1], [0, -420]);
+	const mVerticalPosition = interpolate(progress, [0, 1], [0, -566]);
 	const mRotation = interpolate(progress, [0, 1], [0, -90]);
 
 	return (

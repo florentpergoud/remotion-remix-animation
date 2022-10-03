@@ -23,6 +23,7 @@ export const M = ({
 				marginLeft,
 				marginTop,
 				transform: `rotate(${rotation}deg) scale(${scale})`,
+				transformOrigin: 'center',
 			}}
 		>
 			<svg
