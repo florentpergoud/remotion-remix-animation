@@ -1,23 +1,23 @@
-import {interpolate, useVideoConfig} from 'remotion';
+import {AbsoluteFill, interpolate, Series, useVideoConfig} from 'remotion';
 import {spring, useCurrentFrame} from 'remotion';
 import {Sequence} from 'remotion';
 import {PlusSymbol} from './components/plus-symbol';
 import {RemixLineToPerson} from './components/remix-logo/remix-line-to-person';
 import {RemixNotAnimated} from './components/remix-logo/remix-not-animated';
 import {RemixPersonToFusion} from './components/remix-logo/remix-person-to-fusion';
+import {RemotionLogo} from './components/remotion-logo/remotion-logo';
 import {RemotionLineToPerson} from './components/remotion-logo/remotion-line-to-person';
 import {RemotionNotAnimated} from './components/remotion-logo/remotion-not-animated';
 import {RemotionPersonToFusion} from './components/remotion-logo/remotion-person-to-fusion';
+import {LogoAnimationSequence} from './components/logo-apparition-sequence';
 
 export const LogoAnimation = () => {
 	const {fps} = useVideoConfig();
 	const frame = useCurrentFrame();
 
-	const delay = 0;
-
 	const progress = spring({
 		fps,
-		frame: frame - delay,
+		frame,
 		config: {
 			damping: 200,
 		},
@@ -28,40 +28,31 @@ export const LogoAnimation = () => {
 	const plusYOffset = interpolate(progress, [0, 1], [900, 0]);
 
 	return (
-		<>
-			<Sequence
-				from={0}
-				durationInFrames={fps}
-				style={{
-					backgroundColor: 'white',
-				}}
-			>
-				<RemixNotAnimated horizontalOffset={remixXOffset} />
-				<RemotionNotAnimated horizontalOffset={remotionXOffset} />
-				<PlusSymbol verticalOffset={plusYOffset} />
+		<AbsoluteFill
+			style={{
+				backgroundColor: 'white',
+			}}
+		>
+			<Series>
+				<Series.Sequence durationInFrames={fps * 1.5}>
+					<RemixNotAnimated horizontalOffset={remixXOffset} />
+					<RemotionNotAnimated horizontalOffset={remotionXOffset} />
+					<PlusSymbol verticalOffset={plusYOffset} />
+				</Series.Sequence>
+				<Series.Sequence durationInFrames={fps * 1.5}>
+					<RemixLineToPerson horizontalOffset={remixXOffset} />
+					<RemotionLineToPerson horizontalOffset={remotionXOffset} />
+					<PlusSymbol />
+				</Series.Sequence>
+				<Series.Sequence durationInFrames={fps * 1.5}>
+					<RemixPersonToFusion horizontalOffset={remixXOffset} />
+					<RemotionPersonToFusion horizontalOffset={remotionXOffset} />
+					<PlusSymbol />
+				</Series.Sequence>
+			</Series>
+			<Sequence from={fps * 3.5} durationInFrames={fps * 3}>
+				<LogoAnimationSequence />
 			</Sequence>
-			<Sequence
-				from={fps}
-				durationInFrames={fps}
-				style={{
-					backgroundColor: 'white',
-				}}
-			>
-				<RemixLineToPerson horizontalOffset={remixXOffset} />
-				<RemotionLineToPerson horizontalOffset={remotionXOffset} />
-				<PlusSymbol />
-			</Sequence>
-			<Sequence
-				from={fps * 2}
-				durationInFrames={fps}
-				style={{
-					backgroundColor: 'white',
-				}}
-			>
-				<RemixPersonToFusion horizontalOffset={remixXOffset} />
-				<RemotionPersonToFusion horizontalOffset={remotionXOffset} />
-				<PlusSymbol />
-			</Sequence>
-		</>
+		</AbsoluteFill>
 	);
 };

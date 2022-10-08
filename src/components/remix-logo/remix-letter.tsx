@@ -1,3 +1,5 @@
+import {R} from './r';
+
 interface Props {
 	letterValue: string;
 	marginLeft?: number;
@@ -23,16 +25,20 @@ export const RemixLetter = ({
 				transformOrigin: 'center',
 			}}
 		>
-			<span
-				style={{
-					fontSize: 130,
-					color: 'black',
-					fontFamily: 'Founders Grotesk,sans-serif',
-					fontWeight: 700,
-				}}
-			>
-				{letterValue}
-			</span>
+			{letterValue === 'R' ? (
+				<R />
+			) : (
+				<span
+					style={{
+						fontSize: 130,
+						color: 'black',
+						fontFamily: 'Founders Grotesk,sans-serif',
+						fontWeight: 700,
+					}}
+				>
+					{letterValue}
+				</span>
+			)}
 		</div>
 	);
 };

@@ -7,9 +7,13 @@ import {RemixLetter} from './remix-letter';
 
 interface Props {
 	horizontalOffset?: number;
+	progressOverride?: number;
 }
 
-export const RemixPersonToFusion = ({horizontalOffset}: Props) => {
+export const RemixPersonToFusion = ({
+	horizontalOffset,
+	progressOverride,
+}: Props) => {
 	const {fps} = useVideoConfig();
 	const frame = useCurrentFrame();
 
@@ -21,9 +25,15 @@ export const RemixPersonToFusion = ({horizontalOffset}: Props) => {
 		},
 	});
 
-	const mHorizontalPosition = interpolate(progress, [0, 1], [210, 400]);
-	const mVerticalPosition = interpolate(progress, [0, 0.5, 1], [208, 160, 208]);
-	const mRotation = interpolate(progress, [0, 1], [90, 270]);
+	const progressToUse = progressOverride ?? progress;
+
+	const mHorizontalPosition = interpolate(progressToUse, [0, 1], [210, 400]);
+	const mVerticalPosition = interpolate(
+		progressToUse,
+		[0, 0.5, 1],
+		[208, 160, 208]
+	);
+	const mRotation = interpolate(progressToUse, [0, 1], [90, 270]);
 
 	return (
 		<AbsoluteFill

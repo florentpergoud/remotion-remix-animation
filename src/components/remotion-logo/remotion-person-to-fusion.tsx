@@ -16,9 +16,13 @@ import {T} from './t';
 
 interface Props {
 	horizontalOffset?: number;
+	progressOverride?: number;
 }
 
-export const RemotionPersonToFusion = ({horizontalOffset = 0}: Props) => {
+export const RemotionPersonToFusion = ({
+	horizontalOffset = 0,
+	progressOverride,
+}: Props) => {
 	const {fps} = useVideoConfig();
 	const frame = useCurrentFrame();
 
@@ -29,6 +33,8 @@ export const RemotionPersonToFusion = ({horizontalOffset = 0}: Props) => {
 			damping: 200,
 		},
 	});
+
+	const progressToUse = progressOverride ?? progress;
 
 	const tHorizontalPosition = -810;
 
@@ -49,13 +55,13 @@ export const RemotionPersonToFusion = ({horizontalOffset = 0}: Props) => {
 	const eHorizontalPosition = -212;
 	const eVerticalPosition = -107;
 
-	const mHorizontalPosition = interpolate(progress, [0, 1], [-140, -760]);
+	const mHorizontalPosition = interpolate(progressToUse, [0, 1], [-140, -760]);
 	const mVerticalPosition = interpolate(
-		progress,
+		progressToUse,
 		[0, 0.25, 0.75, 1],
 		[-566, -790, -790, -566]
 	);
-	const mRotation = interpolate(progress, [0, 1], [-90, -270]);
+	const mRotation = interpolate(progressToUse, [0, 1], [-90, -270]);
 
 	return (
 		<AbsoluteFill
