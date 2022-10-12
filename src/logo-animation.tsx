@@ -5,11 +5,13 @@ import {PlusSymbol} from './components/plus-symbol';
 import {RemixLineToPerson} from './components/remix-logo/remix-line-to-person';
 import {RemixNotAnimated} from './components/remix-logo/remix-not-animated';
 import {RemixPersonToFusion} from './components/remix-logo/remix-person-to-fusion';
-import {RemotionLogo} from './components/remotion-logo/remotion-logo';
 import {RemotionLineToPerson} from './components/remotion-logo/remotion-line-to-person';
 import {RemotionNotAnimated} from './components/remotion-logo/remotion-not-animated';
 import {RemotionPersonToFusion} from './components/remotion-logo/remotion-person-to-fusion';
 import {LogoAnimationSequence} from './components/logo-apparition-sequence';
+
+import {loadFonts} from './load-fonts';
+loadFonts();
 
 export const LogoAnimation = () => {
 	const {fps} = useVideoConfig();

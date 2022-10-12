@@ -1,5 +1,4 @@
 import {Composition} from 'remotion';
-import './load-fonts';
 import {LogoAnimation} from './logo-animation';
 
 const FPS = 30;

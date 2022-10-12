@@ -5,7 +5,6 @@ import {spring} from 'remotion';
 import {AbsoluteFill} from 'remotion';
 import {PlusSymbol} from './plus-symbol';
 import {GlowingR} from './remix-logo/glowing-r';
-import {R} from './remix-logo/r';
 import {RemixPersonToFusion} from './remix-logo/remix-person-to-fusion';
 import {RemotionLogo} from './remotion-logo/remotion-logo';
 import {RemotionPersonToFusion} from './remotion-logo/remotion-person-to-fusion';
